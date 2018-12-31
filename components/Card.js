@@ -12,6 +12,10 @@ export default class Card extends Component {
     onPressLinkText: PropTypes.func
   };
 
+  shouldComponentUpdate(nextProps, nextState, nextContext) {
+    return this.props.linkText !== nextProps.linkText;
+  }
+
   state = {
     loading: true
   };
@@ -35,7 +39,7 @@ export default class Card extends Component {
               style={StyleSheet.absoluteFill}
               size={"large"}
             />}
-          <Image style={StyleSheet.absoluteFill} source={image} onLoad={this._handleLoad} />
+          <Image style={{ flex: 1 }} source={image} onLoad={this._handleLoad} />
         </View>
       </View>
     );
